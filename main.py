@@ -7,8 +7,7 @@ cat = pywikibot.Category(site, 'Wikipedia template-protected edit requests')
 
 rc = site_rc_listener(site)
 for change in rc:
-    if (change["namespace"] == 11): 
-        print(change)
+    if (change["title"].startswith("Template talk:Editnotices/")):
         my_list = list(cat.members())
         for i in range(len(my_list)): 
             my_list[i] = my_list[i].title()
